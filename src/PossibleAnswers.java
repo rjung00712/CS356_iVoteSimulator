@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +13,9 @@ public class PossibleAnswers {
         add("B");
         add("C");
         add("D"); }});
+
+//    private List<String> multChoices = Arrays.asList("A", "B");
+
 
     private static final List<String> tfChoices = Collections.unmodifiableList(new ArrayList<String>() {{
         add("Right");

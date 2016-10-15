@@ -12,12 +12,18 @@ public class MultipleChoice extends Question {
         this.answer = answer;
     }
 
-    @Override
-    public MultipleChoice getQuestionAndAnswer() {
-        return this;
+//    @Override
+//    public MultipleChoice getQuestionAndAnswer() {
+//        return this;
+//    }
+
+    public String getQuestion() {
+        return this.question;
     }
 
-//    public String getQuestion() {
-//        return this.question;
-//    }
+    public String getAnswer() {
+        return this.answer;
+    }
+
+
 }

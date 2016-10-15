@@ -14,15 +14,20 @@ public class SingleChoice extends Question {
     }
 
     // returns the object with the question and the variable
+//    @Override
+//    public SingleChoice getQuestionAndAnswer() {
+//        return this;
+//    }
+
+
     @Override
-    public SingleChoice getQuestionAndAnswer() {
-        return this;
+    public String getQuestion()  {
+        return this.question;
     }
 
-
-//    @Override
-//    public String getQuestion()  {
-//        return this.question;
-//    }
+    @Override
+    public String getAnswer() {
+        return this.answer;
+    }
 
 }

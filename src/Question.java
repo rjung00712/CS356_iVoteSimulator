@@ -6,7 +6,12 @@
 abstract public class Question {
 
     // returns this object
-    protected abstract Question getQuestionAndAnswer();
+//    protected abstract Question getQuestionAndAnswer();
 
 //    protected abstract String getQuestion();
+
+    protected abstract String getQuestion();
+
+    protected abstract String getAnswer();
+
 }

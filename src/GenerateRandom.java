@@ -1,9 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Richard on 10/13/16.
+ *
+ * This class does all the random number generating
  */
-public class Generator {
+public class GenerateRandom {
+
+    private Random rand;
 
     // range for number of students
     private static final int minNumStudents = 10;
@@ -13,14 +19,16 @@ public class Generator {
     private static final int highestID = 99999;
     private static final int lowestID = 11111;
 
-    private Random rand;
-
     private int studentID;
     private int numOfStudents;
 
-    public Generator() {
-        rand = new Random();
+    /////////////////////////////////////
 
+    public ArrayList<Student> students = new ArrayList<>();
+    //////////////////////////////////////
+
+    public GenerateRandom() {
+        rand = new Random();
         numOfStudents = generateStudents();
     }
 
@@ -30,13 +38,8 @@ public class Generator {
         return numOfStudents;
     }
 
-    private int generateStudentID() {
-        studentID = rand.nextInt(highestID - lowestID) + lowestID;
-        return studentID;
-    }
-
+    // makes a list of all the students
     public void arrangeStudents() {
-        int i;
         int id = generateStudentID();
 
         while(students.size() != numOfStudents) {
@@ -48,6 +51,18 @@ public class Generator {
         }
     }
 
+    // picks random index out of the list of possible answer choices and returns it
+    public int getSubmission(int length) {
+        return rand.nextInt(length);
+    }
+
+    // generates a random number of students
+    private int generateStudentID() {
+        studentID = rand.nextInt(highestID - lowestID) + lowestID;
+        return studentID;
+    }
+
+    // checks to see if the id is already taken
     private boolean isInList(int id) {
         int i;
 
@@ -58,5 +73,4 @@ public class Generator {
         }
         return false;
     }
-
 }
