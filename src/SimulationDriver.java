@@ -19,6 +19,10 @@ public class SimulationDriver {
 //        s.pickSubmission(q);
 
         iv.displayQuestion(q);
+        iv.displayChoices(q);
+
+        iv.acceptSubmissions(q);
+        iv.displayStatistics(q);
     }
 
 }

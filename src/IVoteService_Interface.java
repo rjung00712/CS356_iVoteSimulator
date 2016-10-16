@@ -8,12 +8,12 @@ public interface IVoteService_Interface {
     // shows the question and its type
     void displayQuestion(Question q);
 
-    // shows the results of student answers
-    void displayStatistics();
+    // shows the answer choices
+    void displayChoices(Question q);
 
-    // arranges the question and answer objects in a set
-    void arrangeQuestions();
+    // shows the results of student answers
+    void displayStatistics(Question q);
 
     // accepts student answer submissions
-    void acceptSubmissions();
+    void acceptSubmissions(Question q);
 }

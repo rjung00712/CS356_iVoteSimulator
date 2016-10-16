@@ -1,6 +1,5 @@
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Random;
 
 /**
  * Created by Richard on 10/12/16.
@@ -13,17 +12,20 @@ public class Student {
     private int id;      // student's ID as a string
     private String submission;  // student's answer submission
 
-    private PossibleAnswers possibleAnswers;
-    private GenerateRandom randomSubmission;
+    private Generator randomSubmission;
+
+    private Classroom classObj;
 
     // default constructor
-    Student() {}
+    Student() {
+        classObj = new Classroom();
+    }
 
     // constructor
     Student(int id) {
         this.id = id;
-        possibleAnswers = new PossibleAnswers();
-        randomSubmission = new GenerateRandom();
+        randomSubmission = new Generator();
+        classObj = new Classroom();
     }
 
     // returns the student's assigned id
@@ -34,22 +36,11 @@ public class Student {
     // this method checks the question format and
     // picks for student based on the format
     public void pickSubmission(Question questionType) {
-        List<String> list;
-        if(questionType instanceof MultipleChoice) {
-            list = possibleAnswers.getMultChoices();
-        } else {
-            list = possibleAnswers.getTFChoices();
-        }
-
-        this.submission = list.get(randomSubmission.getSubmission(list.size()));
+        List<String> list = classObj.getChoices(questionType);
+        this.submission = list.get(new Random().nextInt(list.size()));
     }
 
     public String getSubmission() {
         return this.submission;
     }
-
-    public String print() {
-        return Integer.toString(id);
-    }
-
 }

@@ -21,7 +21,7 @@ public class PossibleAnswers {
         add("Right");
         add("Wrong"); }});
 
-    PossibleAnswers()  {}
+    public PossibleAnswers()  {}
 
     public List getMultChoices() {
         return multChoices;
