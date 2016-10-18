@@ -3,9 +3,8 @@ import java.util.Random;
 
 /**
  * Created by Richard on 10/12/16.
- *
- * This class represents the student and its attributes
  */
+// This class represents the student and its attributes
 public class Student {
 
     // student attributes
@@ -40,6 +39,7 @@ public class Student {
         this.submission = list.get(new Random().nextInt(list.size()));
     }
 
+    // returns this student's submission
     public String getSubmission() {
         return this.submission;
     }

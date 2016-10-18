@@ -1,77 +1,79 @@
-import java.util.ArrayList;
-import java.util.List;
-
-import static javax.swing.UIManager.get;
+import java.util.*;
 
 /**
  * Created by Richard on 10/12/16.
  */
-// This is the main class that manages the utility and component class of
-// the whole iVote System
+// This is the main class that manages the utility
+// and component class of the whole iVote System
 public class IVoteService implements IVoteService_Interface {
 
+    // data members that represent the classroom and student objects
     private ArrayList<Student> students;
-    private List<String> list;
+    private List<String> listOfChoices;
     private Classroom classObj;
 
-    IVoteService() {
+    // constructor creates instances
+    public IVoteService() {
         classObj = new Classroom();
         classObj.arrangeStudents();
         students = classObj.getStudents();
     }
 
+    // displays the question that is proposed to the students
     @Override
     public void displayQuestion(Question question) {
-        System.out.println("This is the question: " + question.getQuestion());
+        System.out.println("This is the question: \"" + question.getQuestion() + "\"");
     }
 
+
+    @Override
+    public void displayAnswer(Question question) {
+        System.out.println("The answer is: " + question.getAnswer());
+    }
+
+    // displays the answer choices that students have to choose from
     @Override
     public void displayChoices(Question questionType) {
-        System.out.print("These are the answer choices: ");
-        list = classObj.getChoices(questionType);
+        System.out.print("The answer choices are: ");
+        listOfChoices = classObj.getChoices(questionType);
 
         for(int i = 0; i < classObj.getChoices(questionType).size(); i++) {
-
-            System.out.print(list.get(i) + ". ");
+            System.out.print(listOfChoices.get(i) + ". ");
         }
         System.out.println();
     }
 
+    // displays the number of student selections for each answer choice
     @Override
     public void displayStatistics(Question questionType) {
-//        classObj.arrangeStudents();
+        int[] frequency = new int[listOfChoices.size()];
 
-//        students = classObj.getStudents();
-
+        for(int i = 0; i < listOfChoices.size(); i++) {
+            System.out.print(listOfChoices.get(i) + " : ");
+            for(int j = 0; j < students.size(); j++) {
+                if(listOfChoices.get(i) == students.get(j).getSubmission()) {
+                    ++frequency[i];
+                }
+            }
+            System.out.print(frequency[i] + "  ");
+        }
+//        System.out.println(Arrays.toString(frequency));
+        System.out.println();
+        System.out.println("Student ID : answer submission");
         for(Student s : students) {
             String submission = s.getSubmission();
             int id = s.getId();
             System.out.print(id + ":" + submission + " ");
         }
-
-
-
     }
 
+    // collects all the selections from the student objects
     @Override
     public void acceptSubmissions(Question questionType) {
-        System.out.println(students.size());
+        System.out.println(students.size() + " students");
 
         for(Student s : students) {
             s.pickSubmission(questionType);
         }
     }
-
-//    public List<String> getChoices(Question questionType) {
-//        PossibleAnswers possibleAnswers = new PossibleAnswers();
-//        List<String> list;
-//
-//        if(questionType instanceof MultipleChoice) {
-//            list = possibleAnswers.getMultChoices();
-//        } else {
-//            list = possibleAnswers.getTFChoices();
-//        }
-//
-//        return list;
-//    }
 }

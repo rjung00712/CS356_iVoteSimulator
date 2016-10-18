@@ -8,6 +8,9 @@ public interface IVoteService_Interface {
     // shows the question and its type
     void displayQuestion(Question q);
 
+    // shows the answer to the question
+    void displayAnswer(Question q);
+
     // shows the answer choices
     void displayChoices(Question q);
 

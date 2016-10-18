@@ -1,6 +1,7 @@
 /**
  * Created by Richard on 10/13/16.
  */
+// this class holds the single choice abstraction
 public class SingleChoice extends Question {
 
     // question and its answer
@@ -8,25 +9,18 @@ public class SingleChoice extends Question {
     private String answer;
 
     // constructor
-    public SingleChoice(String question, String answer) {
+    protected SingleChoice(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }
 
-    // returns the object with the question and the variable
-//    @Override
-//    public SingleChoice getQuestionAndAnswer() {
-//        return this;
-//    }
-
-
     @Override
-    public String getQuestion()  {
+    protected String getQuestion()  {
         return this.question;
     }
 
     @Override
-    public String getAnswer() {
+    protected String getAnswer() {
         return this.answer;
     }
 

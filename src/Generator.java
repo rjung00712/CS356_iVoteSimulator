@@ -20,15 +20,10 @@ public class Generator {
     private static final int lowestID = 11111;
 
     private int studentID;
-
     private PossibleAnswers possibleAnswers;
 
-    /////////////////////////////////////
-
-    public ArrayList<Student> students = new ArrayList<>();
-    //////////////////////////////////////
-
-    public Generator() {
+    // constructor
+    Generator() {
         rand = new Random();
         possibleAnswers = new PossibleAnswers();
     }
@@ -40,11 +35,6 @@ public class Generator {
 
         return numOfStudents;
     }
-
-//    // picks random index out of the list of possible answer choices and returns it
-//    public int getSubmission(int length) {
-//        return rand.nextInt(length);
-//    }
 
     // generates a random number of students
     public int generateStudentID() {

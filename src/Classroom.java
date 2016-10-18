@@ -4,8 +4,10 @@ import java.util.List;
 /**
  * Created by Richard on 10/15/16.
  */
+// This class represents a classroom with students and their attributes
 public class Classroom {
 
+    // data members
     private ArrayList<Student> students;
     private Generator g;
     private PossibleAnswers possibleAnswers;
@@ -29,6 +31,7 @@ public class Classroom {
         }
     }
 
+    // returns the possible choices for students
     public List<String> getChoices(Question questionType) {
         PossibleAnswers possibleAnswers = new PossibleAnswers();
         List<String> list;
@@ -42,6 +45,7 @@ public class Classroom {
         return list;
     }
 
+    // returns a list of students in the class
     public ArrayList<Student> getStudents() {
         return this.students;
     }
