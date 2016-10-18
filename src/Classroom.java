@@ -22,7 +22,7 @@ public class Classroom {
     public void arrangeStudents() {
         int id = g.generateStudentID();
 
-        while(students.size() != g.generateStudents()) {
+        while(students.size() <= g.generateStudents()) {
             if (isInList(id)) {
                 id = g.generateStudentID();
             } else {

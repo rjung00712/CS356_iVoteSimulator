@@ -11,8 +11,6 @@ public class Student {
     private int id;      // student's ID as a string
     private String submission;  // student's answer submission
 
-    private Generator randomSubmission;
-
     private Classroom classObj;
 
     // default constructor
@@ -23,7 +21,6 @@ public class Student {
     // constructor
     Student(int id) {
         this.id = id;
-        randomSubmission = new Generator();
         classObj = new Classroom();
     }
 

@@ -20,12 +20,10 @@ public class Generator {
     private static final int lowestID = 11111;
 
     private int studentID;
-    private PossibleAnswers possibleAnswers;
 
     // constructor
     Generator() {
         rand = new Random();
-        possibleAnswers = new PossibleAnswers();
     }
 
     // randomly generates the number of students

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class SimulationDriver {
 
     public static void main(String[] args) {
@@ -36,5 +34,4 @@ public class SimulationDriver {
 //        iv2.displayStatistics(r);
 //        System.out.println();
     }
-
 }
