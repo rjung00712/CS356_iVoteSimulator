@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.sun.tools.doclint.Entity.nu;
+
 /**
  * Created by Richard on 10/15/16.
  */
@@ -21,8 +23,8 @@ public class Classroom {
     // makes a list of all the students
     public void arrangeStudents() {
         int id = g.generateStudentID();
-
-        while(students.size() <= g.generateStudents()) {
+        int numOfStudents = g.generateStudents();
+        while(students.size() <= numOfStudents) {
             if (isInList(id)) {
                 id = g.generateStudentID();
             } else {
