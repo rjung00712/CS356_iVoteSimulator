@@ -13,6 +13,8 @@ public class Student {
 
     private Classroom classObj;
 
+    private Generator g;
+
     // default constructor
     Student() {
         classObj = new Classroom();
@@ -22,6 +24,7 @@ public class Student {
     Student(int id) {
         this.id = id;
         classObj = new Classroom();
+        g = new Generator();
     }
 
     // returns the student's assigned id
@@ -29,11 +32,16 @@ public class Student {
         return this.id;
     }
 
-    // this method checks the question format and
-    // picks for student based on the format
+    // this method checks the question format and random number of submissions
+    // for each student picks for student based on the format
     public void pickSubmission(Question questionType) {
         List<String> list = classObj.getChoices(questionType);
-        this.submission = list.get(new Random().nextInt(list.size()));
+
+        int numOfSubmissions = g.genNumOfSubmissions();
+
+        for(int i = 0; i < numOfSubmissions; i++) {
+            this.submission = list.get(new Random().nextInt(list.size()));
+        }
     }
 
     // returns this student's submission

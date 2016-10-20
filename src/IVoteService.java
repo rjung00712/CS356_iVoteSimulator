@@ -46,25 +46,53 @@ public class IVoteService implements IVoteService_Interface {
     // displays the number of student selections for each answer choice
     @Override
     public void displayStatistics(Question questionType) {
-        int[] frequency = new int[listOfChoices.size()];
+        listOfChoices = classObj.getChoices(questionType);
+        HashMap<String, HashSet<Integer>> studentAnswers = new HashMap<>();
 
-        for(int i = 0; i < listOfChoices.size(); i++) {
-            System.out.print(listOfChoices.get(i) + " : ");
-            for(int j = 0; j < students.size(); j++) {
-                if(listOfChoices.get(i) == students.get(j).getSubmission()) {
-                    ++frequency[i];
+        String answerSubmissions;
+        String answerChoice;
+        int i, j;
+
+        for(i = 0; i < listOfChoices.size(); i++) {
+            HashSet<Integer> set = new HashSet<>();
+            answerChoice = listOfChoices.get(i);
+            for(j = 0; j < students.size(); j++) {
+                answerSubmissions = students.get(j).getSubmission();
+                if(answerChoice == answerSubmissions) {
+                    set.add(students.get(j).getId());
                 }
             }
-            System.out.print(frequency[i] + "  ");
+            studentAnswers.put(answerChoice, set);
         }
-//        System.out.println(Arrays.toString(frequency));
+
+        for(i = 0; i < studentAnswers.size(); i++) {
+            System.out.print(listOfChoices.get(i) + ":" + studentAnswers.get(listOfChoices.get(i)).size() + " ");
+        }
+
         System.out.println();
-        System.out.println("Student ID : answer submission");
-        for(Student s : students) {
-            String submission = s.getSubmission();
-            int id = s.getId();
-            System.out.print(id + ":" + submission + " ");
-        }
+
+        System.out.print(studentAnswers);
+
+
+//        int[] frequency = new int[listOfChoices.size()];
+//
+//        for(int i = 0; i < listOfChoices.size(); i++) {
+//            System.out.print(listOfChoices.get(i) + " : ");
+//            for(int j = 0; j < students.size(); j++) {
+//                if(listOfChoices.get(i) == students.get(j).getSubmission()) {
+//                    ++frequency[i];
+//                }
+//            }
+//            System.out.print(frequency[i] + "  ");
+//        }
+////        System.out.println(Arrays.toString(frequency));
+//        System.out.println();
+//        System.out.println("Student ID : answer submission");
+//        for(Student s : students) {
+//            String submission = s.getSubmission();
+//            int id = s.getId();
+//            System.out.print(id + ":" + submission + " ");
+//        }
     }
 
     // collects all the selections from the student objects

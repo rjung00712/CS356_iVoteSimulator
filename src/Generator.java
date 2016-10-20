@@ -39,4 +39,8 @@ public class Generator {
         studentID = rand.nextInt(highestID - lowestID) + lowestID;
         return studentID;
     }
+
+    public int genNumOfSubmissions() {
+        return rand.nextInt(3) + 1;
+    }
 }
