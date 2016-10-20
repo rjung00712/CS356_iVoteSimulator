@@ -70,7 +70,7 @@ public class IVoteService implements IVoteService_Interface {
         }
 
         System.out.println();
-
+        System.out.println("Answer Choice = [set of Student IDs who selected this choice]");
         System.out.print(studentAnswers);
 
 
